@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "Key",
+  "namespace": "atlas_postgres.ecommerce.products",
+  "fields": [
+    {
+      "name": "product_id",
+      "type": {
+        "type": "string",
+        "connect.version": 1,
+        "connect.name": "io.debezium.data.Uuid"
+      }
+    }
+  ],
+  "connect.name": "atlas_postgres.ecommerce.products.Key"
+}

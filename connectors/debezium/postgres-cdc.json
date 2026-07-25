@@ -1,0 +1,44 @@
+{
+  "name": "atlas-postgres-cdc",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+
+    "tasks.max": "1",
+
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "atlas_app",
+    "database.password": "change_me_local",
+    "database.dbname": "atlas_commerce",
+
+    "topic.prefix": "atlas_postgres",
+
+    "plugin.name": "pgoutput",
+
+    "slot.name": "atlas_slot",
+
+    "publication.name": "atlas_publication",
+
+    "publication.autocreate.mode": "filtered",
+
+    "snapshot.mode": "initial",
+
+    "table.include.list": "ecommerce.customers,ecommerce.inventory,ecommerce.order_items,ecommerce.orders,ecommerce.payments,ecommerce.products,ecommerce.refunds,ecommerce.shipments,ecommerce.shipment_events,ecommerce.warehouses",
+
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+
+    "key.converter.schema.registry.url": "http://schema-registry:8081",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
+
+    "decimal.handling.mode": "string",
+
+    "time.precision.mode": "adaptive_time_microseconds",
+
+    "tombstones.on.delete": "false",
+
+    "heartbeat.interval.ms": "10000",
+
+    "include.schema.changes": "false"
+  }
+}
