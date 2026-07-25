@@ -1,0 +1,12 @@
+FROM apache/spark:3.5.6
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y curl wget procps && \
+    apt-get clean
+
+ENV SPARK_HOME=/opt/spark
+ENV PATH="$SPARK_HOME/bin:$PATH"
+
+USER spark
